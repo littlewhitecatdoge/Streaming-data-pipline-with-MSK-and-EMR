@@ -97,7 +97,6 @@ all-traffice allow  <sg-name>
 ### 1.IOT/Streaming data source -> kafka -> flink-> s3
 
 - Run flink job (remember setting your s3 bucket on code ```kafka_to_s3.py```)
-
 ```
 # start a session
 flink-yarn-session -d
@@ -163,6 +162,10 @@ kafka_2.13-3.5.1/bin
 ```
 spark-submit --master yarn --deploy-mode cluster spark_kafka_to_s3.py
 ```
+- Run ```steaming_data_producer.py``` on ec2
+```
+python3 streaming_data_producer.py 
+```
 - check s3 path
 
 ### 4.IOT/Streaming data source -> kafka -> Spark steaming -> Hbase
@@ -178,3 +181,11 @@ create 'vehicle_data2', 'info','location'
 ```
 spark-submit --class com.mycompany.app.KafkaStreamingToHbase xxxxxxxxxxx.jar
 ```
+
+- Run ```steaming_data_producer.py``` on ec2
+
+```
+python3 streaming_data_producer.py 
+```
+
+- check hbase table
